@@ -2,5 +2,38 @@ a, button {
     margin-left: 2vw;
 }
 
+img{
+    border-radius: 50%;
+    cursor: pointer;
+
+}
+
+nav{
+  background-color: transparent;
+  position: fixed;
+  width: 100%;
+}
+
+
+.login{
+    color: black;
+    font-family: 'Numans', sans-serif;
+    margin-right: 6%;
+    cursor: pointer;
+}
+
+
+
+.col4{
+    width: 75%;
+    padding-left: 30%;
+}
+
+.col3{
+    width: 25%;
+}
+
+
+
 
 
