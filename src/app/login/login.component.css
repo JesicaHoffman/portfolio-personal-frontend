@@ -1,0 +1,17 @@
+.container{
+    padding-top: 25vh;
+    text-align: center;
+}
+
+mat-form-field{
+    width: 30%;
+    margin-bottom: 7vh;
+}
+
+h1{
+    margin-bottom: 7vh;
+}
+
+p{
+    color: red;
+}

@@ -1,1 +1,26 @@
-<p>login works!</p>
+<div class="container">
+    <h1>Login</h1>
+      <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+      <mat-form-field appearance="fill">
+      <mat-label>Usuario</mat-label>
+      <input formControlName="email" matInput>
+      </mat-form-field><br>
+      <div *ngIf="Email?.errors && Email?.touched">
+           <p *ngIf="Email?.hasError('required')">El email es requerido.</p>
+           <p *ngIf="Email?.hasError('email')">El formato del email debe ser válido.</p>
+      </div>
+      <mat-form-field appearance="fill">
+      <mat-label>Contraseña</mat-label>
+      <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      </mat-form-field>
+      <br>
+      <div *ngIf="Password?.errors && Password?.touched">
+        <p *ngIf="Password?.hasError('required')">La contraseña es requerida.</p>
+        <p *ngIf="Password?.errors?.minlength">La contraseña debe ser de 8 o más caracteres.</p>
+      </div>
+      <button type="submit" mat-flat-button color="primary">Ingresar a modo Edicion</button>
+    </form>
+</div>
