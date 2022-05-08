@@ -20,3 +20,7 @@
     align-items: center;
     text-align: end;
 }
+
+.mat-icon{
+    cursor: pointer;
+}
