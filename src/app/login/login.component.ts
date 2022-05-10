@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import { AutenticacionService } from '../servicios/autenticacion.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -11,9 +12,10 @@ import { AutenticacionService } from '../servicios/autenticacion.service';
 export class LoginComponent implements OnInit {
   form: FormGroup;
   hide = true;
+  content: boolean = true;
   constructor( private _snackBar: MatSnackBar,
                private formBuilder: FormBuilder,
-               private auntenticacionService: AutenticacionService ) { 
+               private router: Router ) { 
 
    this.form= this.formBuilder.group({
      email: ['', [Validators.required, Validators.email]],
@@ -30,10 +32,6 @@ export class LoginComponent implements OnInit {
     this._snackBar.open(message, action);
   }
 
-  login(){
-    /* console.log(this.myForm.value); */
-    this.openSnackBar("Usuario no registrado", "Cerrar");
-  }
 
   ngOnInit(): void {
   }
@@ -47,9 +45,15 @@ export class LoginComponent implements OnInit {
   }
 
   onEnviar(event:Event){
-      event.preventDefault;
-      this.auntenticacionService.iniciarSesion(this.form.value).subscribe(data => {
-        console.log('DATA: ', JSON.stringify(data));
-      })
+
+    if(this.Email?.value === 'jesica_889@hotmail.com' && this.Password?.value === 'Jesica156'){
+      localStorage.setItem('isEditable', 'true');
+      this.openSnackBar("Ingresaste a modo edición", "Cerrar");
+      this.content = false;
+      this.router.navigateByUrl('/');
+    }else{
+      this.openSnackBar("Usuario no registrado", "Cerrar");
+    }
+     
   }
 }

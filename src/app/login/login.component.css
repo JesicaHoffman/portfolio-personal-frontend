@@ -1,6 +1,7 @@
 .container{
     padding-top: 25vh;
     text-align: center;
+    height: 100vh;
 }
 
 mat-form-field{

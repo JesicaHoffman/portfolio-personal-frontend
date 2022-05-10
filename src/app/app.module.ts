@@ -21,6 +21,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GeneralService } from './servicios/general.service';
 import { InterceptorService } from './servicios/interceptor.service';
+import { DatosPersonalesComponent } from './datos-personales/datos-personales.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { InterceptorService } from './servicios/interceptor.service';
     EducationComponent,
     SkillsComponent,
     ProyectsComponent,
-    InicioComponent
+    InicioComponent,
+    DatosPersonalesComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

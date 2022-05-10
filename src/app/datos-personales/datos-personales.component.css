@@ -1,0 +1,26 @@
+#imagen{
+    display: inline-block;
+    width: 50%;
+}
+
+.text{
+   
+    font-family: 'Numans', sans-serif;
+    padding-left: 25%;
+    padding-right: 5%;
+    height: 100vh;
+    padding-top: 10%;
+    display: inline-block;
+   
+}
+
+
+.icons{
+    align-items: center;
+    text-align: end;
+}
+
+.mat-icon{
+    cursor: pointer;
+}
+

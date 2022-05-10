@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="content" class="container">
     <h1>Login</h1>
       <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
       <mat-form-field appearance="fill">

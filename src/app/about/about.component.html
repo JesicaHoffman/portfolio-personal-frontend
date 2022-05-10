@@ -3,15 +3,18 @@
     <div class="text">
         <h1>Sobre mi</h1><div class="icons"><mat-icon *ngIf="isEditable" (click)="eliminar($event)">{{'delete_outline'}}</mat-icon><mat-icon *ngIf="isEditable" (click)="modificar()">{{'create'}}</mat-icon></div>
         <h3 *ngIf="editar">{{aboutMe}}</h3>
-        <div class="container" *ngIf="!editar">
+        <div  *ngIf="!editar">
             <form [formGroup]="formAbout" (ngSubmit)="onEnviar($event)">
             <br>
-            <input type="textarea"  formControlName="texto">
+            <input class="aboutMeInput" type="textarea"  formControlName="texto">
             <br>
             <br>
             <button type="submit" mat-flat-button color="primary">Modificar</button>
           </form>
       </div>
     </div>
+
+    
 </div>
+<app-datos-personales></app-datos-personales>
 

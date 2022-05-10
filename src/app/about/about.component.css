@@ -24,3 +24,8 @@
 .mat-icon{
     cursor: pointer;
 }
+
+.aboutMeInput{
+    width: 100%;
+    height: 40vh;
+}
