@@ -46,7 +46,7 @@ export class AboutComponent implements OnInit {
 
     onEnviar(event:Event){
       event.preventDefault;
-      this.about[0].nombre = this.formAbout.get('texto')?.value;
+      this.about[0].texto = this.formAbout.get('texto')?.value;
        this.generalService.modifyAbout(this.about[0]).subscribe(data =>{
          this.aboutMe = this.about[0].texto
          this.editar = true;

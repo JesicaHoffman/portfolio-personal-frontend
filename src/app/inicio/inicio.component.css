@@ -1,20 +1,55 @@
-.background{
-    background-image: url("src\assets\img\imagen-fondo.jpg");
-    height: 100%;
-    background-size: cover;
-}
 
-.text{
-    font-family: 'Numans', sans-serif;
-    width: 42%;
-    margin-left: 10%;
-  
-    color: black;
+
+
+body{
     
+    font-family: 'Numans', sans-serif;
 }
 
-.text h1{
-    color: white;
-    font-family: 'Numans', sans-serif;
-    padding-top: 240px;
+header{
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+
+video{
+
+    width: 100%;
+
+}
+
+.absolute{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    position: absolute;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    font-size: 60px;
+    font-weight: 800;
+    color: aliceblue;
+    margin-bottom: 30px;
+}
+
+h1::after{
+    display: block;
+    width: 30%;
+    height: 10px;
+    content: '';
+
+}
+
+.overlay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background:rgba(9, 9, 9, 0.525);
 }
