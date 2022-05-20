@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GeneralService {
-    url:string= "http://localhost:8080/"
+    url:string= "https://jesica-hoffman.herokuapp.com/"
   constructor( private http: HttpClient) { }
 
   getAbout():Observable<any>{
