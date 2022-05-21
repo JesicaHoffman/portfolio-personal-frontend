@@ -1,99 +1,225 @@
 <app-education></app-education>
 
-
-
 <section class="py-6 bg-light-primary">
   <div class="container">
-      <!-- <div class="row justify-content-center text-center mb-4">
-          <div class="col-xl-6 col-lg-8 col-sm-10">
-              <h2 class="font-weight-bold">Mis skills <br> <mat-icon *ngIf="isEditable"  (click)="open(content)">{{'add_circle_outline'}}</mat-icon></h2>
-          </div>
-      </div> -->
-      <div class="section-title">
-        <h2>Mis skills <mat-icon *ngIf="isEditable"  (click)="open(content)">{{'add_circle_outline'}}</mat-icon></h2>
-       
+    <div class="section-title">
+      <h2>
+        Mis skills
+        <mat-icon *ngIf="isEditable" (click)="open(content)">{{
+          "add_circle_outline"
+        }}</mat-icon>
+      </h2>
     </div>
 
-     <!--  Modal -->
+    <!--  Modal -->
 
-     <ng-template #content let-modal>
+    <ng-template #content let-modal>
       <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Ingresa un nuevo skill</h4>
-        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        <h4 class="modal-title" id="modal-basic-title">
+          Ingresa un nuevo skill
+        </h4>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          (click)="modal.dismiss('Cross click')"
+        ></button>
       </div>
       <div class="modal-body">
         <form [formGroup]="addSkill" (ngSubmit)="agregarSkill($event)">
           <div class="mb-3">
             <label for="dateOfBirth">Tecnologia:</label>
             <div class="input-group">
-              <input id="dateOfBirth" class="form-control" name="dp" ngbDatepicker #dp="ngbDatepicker" formControlName="addTecnologia">
-             </div>
-             <label for="dateOfBirth">Porcentaje:</label>
-             <div class="input-group">
-              <input id="dateOfBirth" class="form-control" name="dp" ngbDatepicker #dp="ngbDatepicker" formControlName="addPorcentaje">
-             </div>
+              <input
+                id="dateOfBirth"
+                class="form-control"
+                name="dp"
+                ngbDatepicker
+                #dp="ngbDatepicker"
+                formControlName="addTecnologia"
+              />
+            </div>
+            <label for="dateOfBirth">Porcentaje:</label>
+            <div class="input-group">
+              <input
+                id="dateOfBirth"
+                class="form-control"
+                name="dp"
+                ngbDatepicker
+                #dp="ngbDatepicker"
+                formControlName="addPorcentaje"
+              />
+            </div>
           </div>
-        
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-      </div>
-    </form>
-  </div>
-    </ng-template>
-    
-    
-    <hr>
 
-      <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 text-center justify-content-center px-xl-6 aos-init aos-animate" data-aos="fade-up">
-          <div *ngFor="let skill of skills; let i = index" class="col my-3">
-              <div class="card border-hover-primary hover-scale">
-                  <div class="card-body">
-                      <div class="text-primary mb-4">
-                        <img *ngIf="skill.tecnologia == 'Javascript'" src="assets/img/logo-javaScript.jpg"   width="60" height="60" viewBox="0 0 24 24">
-                        <img *ngIf="skill.tecnologia == 'Angular'" src="assets/img/logo-angular.jpg"  width="60" height="60" viewBox="0 0 24 24">
-                        <img *ngIf="skill.tecnologia == 'Typescript'" src="assets/img/logo-typescript.jpg"  width="60" height="60" viewBox="0 0 24 24">
-                        <img *ngIf="skill.tecnologia == 'React'" src="assets/img/logo-react.jpg" width="60" height="60" viewBox="0 0 24 24">
-                        <img *ngIf="skill.tecnologia == 'HTML'" src="assets/img/logo-html.jpg" width="60" height="60" viewBox="0 0 24 24">
-                        <img *ngIf="skill.tecnologia == 'css'" src="assets/img/logo-css.jpg" width="60" height="60" viewBox="0 0 24 24">
-                        <img *ngIf="skill.tecnologia == 'Git'" src="assets/img/logo-git.jpg" width="60" height="60" viewBox="0 0 24 24"><br>
-                        <img *ngIf="skill.tecnologia == 'Java'" class='image' src="assets/img/logo-java.jpg" width="100" height="40" viewBox="0 0 24 24">
-                        <img *ngIf="skill.tecnologia == 'MongoDB'" class='image' src="assets/img/logo-mongodb.jpg" width="80" height="40" viewBox="0 0 24 24">
-                        <img *ngIf="skill.tecnologia == 'Node js'" class='image' src="assets/img/logo-node.jpg" width="80" height="60" viewBox="0 0 24 24">
-                        <img *ngIf="skill.tecnologia == 'MySQL'" class='image' src="assets/img/logo-mysql.jpg" width="80" height="60" viewBox="0 0 24 24">
-                      </div>
-                      <h4 class="font-weight-bold mb-3">{{skill.tecnologia}}</h4>
-                      <p class="text-muted mb-0">{{skill.porcentaje}}</p><br><mat-icon *ngIf="isEditable" (click)="eliminar($event, i)">{{'delete_outline'}}</mat-icon><mat-icon *ngIf="isEditable" (click)="openModal(modificar)">{{'create'}}</mat-icon>
-                  </div>
+          <div class="modal-footer">
+            <button
+              type="submit"
+              class="btn btn-outline-dark"
+              (click)="modal.close('Save click')"
+            >
+              Agregar
+            </button>
+          </div>
+        </form>
+      </div>
+    </ng-template>
+
+    <hr />
+
+    <div
+      class="row row-cols-lg-3 row-cols-md-2 row-cols-1 text-center justify-content-center px-xl-6 aos-init aos-animate"
+      data-aos="fade-up"
+    >
+      <div *ngFor="let skill of skills; let i = index" class="col my-3">
+        <div class="card border">
+          <div class="card-body">
+            <div class="text-primary mb-4">
+              <img
+                *ngIf="skill.tecnologia == 'Javascript'"
+                src="assets/img/logo-javaScript.jpg"
+                width="60"
+                height="60"
+                viewBox="0 0 24 24"
+              />
+              <img
+                *ngIf="skill.tecnologia == 'Angular'"
+                src="assets/img/logo-angular.jpg"
+                width="60"
+                height="60"
+                viewBox="0 0 24 24"
+              />
+              <img
+                *ngIf="skill.tecnologia == 'Typescript'"
+                src="assets/img/logo-typescript.jpg"
+                width="60"
+                height="60"
+                viewBox="0 0 24 24"
+              />
+              <img
+                *ngIf="skill.tecnologia == 'React'"
+                src="assets/img/logo-react.jpg"
+                width="60"
+                height="60"
+                viewBox="0 0 24 24"
+              />
+              <img
+                *ngIf="skill.tecnologia == 'HTML'"
+                src="assets/img/logo-html.jpg"
+                width="60"
+                height="60"
+                viewBox="0 0 24 24"
+              />
+              <img
+                *ngIf="skill.tecnologia == 'css'"
+                src="assets/img/logo-css.jpg"
+                width="60"
+                height="60"
+                viewBox="0 0 24 24"
+              />
+              <img
+                *ngIf="skill.tecnologia == 'Git'"
+                src="assets/img/logo-git.jpg"
+                width="60"
+                height="60"
+                viewBox="0 0 24 24"
+              /><br />
+              <img
+                *ngIf="skill.tecnologia == 'Java'"
+                class="image"
+                src="assets/img/logo-java.jpg"
+                width="100"
+                height="60"
+                viewBox="0 0 24 24"
+              />
+              <img
+                *ngIf="skill.tecnologia == 'MongoDB'"
+                class="image"
+                src="assets/img/logo-mongodb.jpg"
+                width="80"
+                height="40"
+                viewBox="0 0 24 24"
+              />
+              <img
+                *ngIf="skill.tecnologia == 'Node js'"
+                class="image"
+                src="assets/img/logo-node.jpg"
+                width="80"
+                height="60"
+                viewBox="0 0 24 24"
+              />
+              <img
+                *ngIf="skill.tecnologia == 'MySQL'"
+                class="image"
+                src="assets/img/logo-mysql.jpg"
+                width="80"
+                height="60"
+                viewBox="0 0 24 24"
+              />
+            </div>
+            <h4 class="font-weight-bold mb-3">{{ skill.tecnologia }}</h4>
+            <p class="text-muted mb-0">{{ skill.porcentaje }}</p>
+            <br /><mat-icon *ngIf="isEditable" (click)="eliminar($event, i)">{{
+              "delete_outline"
+            }}</mat-icon
+            ><mat-icon *ngIf="isEditable" (click)="openModal(modificar)">{{
+              "create"
+            }}</mat-icon>
+          </div>
+        </div>
+
+        <ng-template #modificar let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">
+              Modifica tu skill
+            </h4>
+            <button
+              type="button"
+              class="btn-close"
+              aria-label="Close"
+              (click)="modal.dismiss('Cross click')"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="formSkill" (ngSubmit)="onEnviar($event, i)">
+              <div class="mb-3">
+                <label for="dateOfBirth">Tecnologia:</label>
+                <div class="input-group">
+                  <input
+                    id="dateOfBirth"
+                    class="form-control"
+                    name="dp"
+                    ngbDatepicker
+                    #dp="ngbDatepicker"
+                    formControlName="tecnologia"
+                  />
+                </div>
+                <label for="dateOfBirth">Porcentaje:</label>
+                <div class="input-group">
+                  <input
+                    id="dateOfBirth"
+                    class="form-control"
+                    name="dp"
+                    ngbDatepicker
+                    #dp="ngbDatepicker"
+                    formControlName="porcentaje"
+                  />
+                </div>
               </div>
 
-              <ng-template #modificar let-modal>
-                <div class="modal-header">
-                  <h4 class="modal-title" id="modal-basic-title">Modifica tu skill</h4>
-                  <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-                </div>
-                <div class="modal-body">
-                  <form [formGroup]="formSkill" (ngSubmit)="onEnviar($event, i)">
-                    <div class="mb-3">
-                      <label for="dateOfBirth">Tecnologia:</label>
-                      <div class="input-group">
-                        <input id="dateOfBirth" class="form-control" name="dp" ngbDatepicker #dp="ngbDatepicker" formControlName="tecnologia">
-                       </div>
-                       <label for="dateOfBirth">Porcentaje:</label>
-                       <div class="input-group">
-                        <input id="dateOfBirth" class="form-control" name="dp" ngbDatepicker #dp="ngbDatepicker" formControlName="porcentaje">
-                       </div>
-                    </div>
-                  
-                <div class="modal-footer">
-                  <button type="submit" class="btn btn-outline-dark" (click)="modal.close('Save click')">Modificar</button>
-                </div>
-              </form>
-            </div>
-              </ng-template>
+              <div class="modal-footer">
+                <button
+                  type="submit"
+                  class="btn btn-outline-dark"
+                  (click)="modal.close('Save click')"
+                >
+                  Modificar
+                </button>
+              </div>
+            </form>
           </div>
+        </ng-template>
       </div>
+    </div>
   </div>
 </section>
-
-
-

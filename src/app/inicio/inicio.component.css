@@ -2,7 +2,6 @@
 
 
 body{
-    
     font-family: 'Numans', sans-serif;
 }
 
@@ -30,17 +29,19 @@ video{
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Numans', sans-serif;
 }
 
 h1{
-    font-size: 60px;
-    font-weight: 800;
-    color: aliceblue;
+  font-family: 'Numans', sans-serif;
+    font-size: 70px;
+    font-weight: 600;
+    color: rgba(240, 248, 255, 0.779);
     margin-bottom: 30px;
 }
 
 h1::after{
-    display: block;
+
     width: 30%;
     height: 10px;
     content: '';
@@ -53,3 +54,25 @@ h1::after{
     position: absolute;
     background:rgba(9, 9, 9, 0.525);
 }
+
+h2{
+  color: rgba(240, 248, 255, 0.752);
+  margin-top: 100px;
+}
+
+button{
+  margin-top: 200px;
+  color: rgba(240, 248, 255, 0.841);
+  background-color: rgba(29, 30, 30, 0.042);
+  border-color: rgba(240, 248, 255, 0.752);
+  border-radius: 5px;
+  height: 40px;
+  width: 100px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+button:hover{
+  background-color:  rgba(40, 42, 43, 0.59);
+}
+

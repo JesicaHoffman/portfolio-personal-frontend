@@ -4,26 +4,24 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit {
   isEditable: boolean = false;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
-
-    if(localStorage.getItem('isEditable') === 'true'){
+    if (localStorage.getItem('isEditable') === 'true') {
       this.isEditable = true;
-    }else{
+    } else {
       this.isEditable = false;
     }
   }
 
-  logOut(){
+  logOut() {
     localStorage.removeItem('isEditable');
     window.location.reload();
-   this.isEditable = false;
+    this.isEditable = false;
   }
-
 }

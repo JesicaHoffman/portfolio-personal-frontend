@@ -1,104 +1,217 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
-<section class="section gray-bg" id="resume">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="section-title">
-                            <h2>Mis estudios <mat-icon *ngIf="isEditable"  (click)="open(content)">{{'add_circle_outline'}}</mat-icon></h2>
-                            <p>Estudios con certificacion oficial</p>
-                        </div>
+<div *ngIf="loading" class="preloader">
+  <div class="loader">
+    <div class="loader-outter"></div>
+    <div class="loader-inner"></div>
 
-                        <!--  Modal -->
+    <div class="indicator">
+      <svg width="16px" height="12px">
+        <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+        <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+      </svg>
+    </div>
+  </div>
+</div>
 
-     <ng-template #content let-modal>
-        <div class="modal-header">
-          <h4 class="modal-title" id="modal-basic-title">Ingresa tu nueva educacion</h4>
-          <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+  integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+  crossorigin="anonymous"
+/>
+<section *ngIf="!loading" class="section" id="resume">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="section-title">
+          <h2>
+            Mis estudios
+            <mat-icon *ngIf="isEditable" (click)="open(content)">{{
+              "add_circle_outline"
+            }}</mat-icon>
+          </h2>
+          <p>Estudios con certificación oficial</p>
         </div>
-        <div class="modal-body">
-          <form [formGroup]="addEducacion" (ngSubmit)="agregarEducacion($event)">
-            <div class="mb-3">
-              <label for="dateOfBirth">Titulo:</label>
-              <div class="input-group">
-                <input id="dateOfBirth" class="form-control" name="dp" ngbDatepicker #dp="ngbDatepicker" formControlName="addTitulo">
-               </div>
-               <label for="dateOfBirth">Institucion:</label>
-               <div class="input-group">
-                <input id="dateOfBirth" class="form-control" name="dp" ngbDatepicker #dp="ngbDatepicker" formControlName="addInstitucion">
-               </div>
-               <label for="dateOfBirth">Fecha de inicio:</label>
-               <div class="input-group">
-                <input id="dateOfBirth" class="form-control" name="dp" ngbDatepicker #dp="ngbDatepicker" formControlName="addFechaInicio">
-               </div>
-               <label for="dateOfBirth">Fecha fin:</label>
-               <div class="input-group">
-                <input id="dateOfBirth" class="form-control" name="dp" ngbDatepicker #dp="ngbDatepicker" formControlName="addFechaFin">
-               </div>
-            </div>
 
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+        <!--  Modal -->
+
+        <ng-template #content let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">
+              Ingresá tu nueva educación
+            </h4>
+            <button
+              type="button"
+              class="btn-close"
+              aria-label="Close"
+              (click)="modal.dismiss('Cross click')"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form
+              [formGroup]="addEducacion"
+              (ngSubmit)="agregarEducacion($event)"
+            >
+              <div class="mb-3">
+                <label for="dateOfBirth">Título:</label>
+                <div class="input-group">
+                  <input
+                    id="dateOfBirth"
+                    class="form-control"
+                    name="dp"
+                    ngbDatepicker
+                    #dp="ngbDatepicker"
+                    formControlName="addTitulo"
+                  />
+                </div>
+                <label for="dateOfBirth">Institución:</label>
+                <div class="input-group">
+                  <input
+                    id="dateOfBirth"
+                    class="form-control"
+                    name="dp"
+                    ngbDatepicker
+                    #dp="ngbDatepicker"
+                    formControlName="addInstitucion"
+                  />
+                </div>
+                <label for="dateOfBirth">Fecha de inicio:</label>
+                <div class="input-group">
+                  <input
+                    id="dateOfBirth"
+                    class="form-control"
+                    name="dp"
+                    ngbDatepicker
+                    #dp="ngbDatepicker"
+                    formControlName="addFechaInicio"
+                  />
+                </div>
+                <label for="dateOfBirth">Fecha fin:</label>
+                <div class="input-group">
+                  <input
+                    id="dateOfBirth"
+                    class="form-control"
+                    name="dp"
+                    ngbDatepicker
+                    #dp="ngbDatepicker"
+                    formControlName="addFechaFin"
+                  />
+                </div>
+              </div>
+
+              <div class="modal-footer">
+                <button
+                  type="submit"
+                  class="btn btn-outline-dark"
+                  (click)="modal.close('Save click')"
+                >
+                  Agregar
+                </button>
               </div>
             </form>
           </div>
+        </ng-template>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 m-15px-tb">
+        <div class="resume-box">
+          <ul *ngFor="let educacion of educaciones; let i = index">
+            <li>
+              <div class="icon">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+              <span class="time"
+                >{{ educacion.fechaInicio }} - {{ educacion.fechaFin }}</span
+              >
+              <h5>{{ educacion.titulo }}</h5>
+              <p>{{ educacion.institucion }}</p>
+              <mat-icon *ngIf="isEditable" (click)="eliminar($event, i)">{{
+                "delete_outline"
+              }}</mat-icon
+              ><mat-icon *ngIf="isEditable" (click)="openModal(modificar)">{{
+                "create"
+              }}</mat-icon>
+            </li>
+
+            <ng-template #modificar let-modal>
+              <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">
+                  Modifica tu educación
+                </h4>
+                <button
+                  type="button"
+                  class="btn-close"
+                  aria-label="Close"
+                  (click)="modal.dismiss('Cross click')"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form
+                  [formGroup]="formEducacion"
+                  (ngSubmit)="onEnviar($event, i)"
+                >
+                  <div class="mb-3">
+                    <label for="dateOfBirth">Título:</label>
+                    <div class="input-group">
+                      <input
+                        id="dateOfBirth"
+                        class="form-control"
+                        name="dp"
+                        ngbDatepicker
+                        #dp="ngbDatepicker"
+                        formControlName="titulo"
+                      />
+                    </div>
+                    <label for="dateOfBirth">Institución:</label>
+                    <div class="input-group">
+                      <input
+                        id="dateOfBirth"
+                        class="form-control"
+                        name="dp"
+                        ngbDatepicker
+                        #dp="ngbDatepicker"
+                        formControlName="institucion"
+                      />
+                    </div>
+                    <label for="dateOfBirth">Fecha Inicio:</label>
+                    <div class="input-group">
+                      <input
+                        id="dateOfBirth"
+                        class="form-control"
+                        name="dp"
+                        ngbDatepicker
+                        #dp="ngbDatepicker"
+                        formControlName="fechaInicio"
+                      />
+                    </div>
+                    <label for="dateOfBirth">Fecha fin:</label>
+                    <div class="input-group">
+                      <input
+                        id="dateOfBirth"
+                        class="form-control"
+                        name="dp"
+                        ngbDatepicker
+                        #dp="ngbDatepicker"
+                        formControlName="fechaFin"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button
+                      type="submit"
+                      class="btn btn-outline-dark"
+                      (click)="modal.close('Save click')"
+                    >
+                      Modificar
+                    </button>
+                  </div>
+                </form>
+              </div>
             </ng-template>
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 m-15px-tb">
-                        <div class="resume-box">
-                            <ul *ngFor="let educacion of educaciones; let i = index">
-                                <li>
-                                    <div class="icon">
-                                        <i class="fas fa-user-graduate"></i>
-                                    </div>
-                                    <span class="time">{{educacion.fechaInicio}} - {{educacion.fechaFin}}</span>
-                                    <h5>{{educacion.titulo}} </h5>
-                                    <p>{{educacion.institucion}} </p><mat-icon *ngIf="isEditable" (click)="eliminar($event, i)">{{'delete_outline'}}</mat-icon><mat-icon *ngIf="isEditable" (click)="openModal(modificar)">{{'create'}}</mat-icon>
-                                </li>
-
-                                <ng-template #modificar let-modal>
-                                    <div class="modal-header">
-                                      <h4 class="modal-title" id="modal-basic-title">Modifica tu educacion</h4>
-                                      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <form [formGroup]="formEducacion" (ngSubmit)="onEnviar($event, i)">
-                                        <div class="mb-3">
-                                          <label for="dateOfBirth">Titulo:</label>
-                                          <div class="input-group">
-                                            <input id="dateOfBirth" class="form-control" name="dp" ngbDatepicker #dp="ngbDatepicker" formControlName="titulo">
-                                           </div>
-                                           <label for="dateOfBirth">Institucion:</label>
-                                           <div class="input-group">
-                                            <input id="dateOfBirth" class="form-control" name="dp" ngbDatepicker #dp="ngbDatepicker" formControlName="institucion">
-                                           </div>
-                                           <label for="dateOfBirth">Fecha Inicio:</label>
-                                           <div class="input-group">
-                                            <input id="dateOfBirth" class="form-control" name="dp" ngbDatepicker #dp="ngbDatepicker" formControlName="fechaInicio">
-                                           </div>
-                                           <label for="dateOfBirth">Fecha fin:</label>
-                                           <div class="input-group">
-                                            <input id="dateOfBirth" class="form-control" name="dp" ngbDatepicker #dp="ngbDatepicker" formControlName="fechaFin">
-                                           </div>
-                                        </div>
-                                      
-                                    <div class="modal-footer">
-                                      <button type="submit" class="btn btn-outline-dark" (click)="modal.close('Save click')">Modificar</button>
-                                    </div>
-                                  </form>
-                                </div>
-                                  </ng-template>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-
-
-
-
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

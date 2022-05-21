@@ -35,11 +35,11 @@ body{margin-top:20px;}
 .contain{
     padding-top: 25vh;
     padding-left: 8%;
-   
+
 }
 
 .image{
-  
+
   margin-left: 2.5%;
   margin-right: 3.5%;
 }
@@ -63,3 +63,13 @@ body{margin-top:20px;}
 .section-title {
   padding-bottom: 45px;
 }
+
+.card-body :hover{
+  -moz-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+

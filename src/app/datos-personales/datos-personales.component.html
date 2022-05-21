@@ -1,78 +1,105 @@
-
-<!-- <div class="text">
-    <h1>Datos personales</h1><div class="icons"><mat-icon *ngIf="isEditable" (click)="eliminar($event)">{{'delete_outline'}}</mat-icon><mat-icon *ngIf="isEditable" (click)="modificarDatos()">{{'create'}}</mat-icon></div>
-    <h3 *ngIf="editarDatos">Nombre: {{nombre}}</h3>
-    <h3 *ngIf="editarDatos">Apellido: {{apellido}}</h3>
-    <h3 *ngIf="editarDatos">Dni: {{dni}}</h3>
-    <h3 *ngIf="editarDatos">Fecha de nacimiento: {{fechaNacimiento}}</h3>
-    <h3 *ngIf="editarDatos">Correo electrónico: {{mail}}</h3>
-    <h3 *ngIf="editarDatos">Telefono: {{telefono}}</h3>
-    <h3 *ngIf="editarDatos">Nacionalidad: {{nacionalidad}}</h3>
-    <h3 *ngIf="editarDatos">Perfil de Linkedin: <a href="https://www.linkedin.com/in/jesica-hoffman-334bb9208/" target="_blank" *ngIf="editarDatos">{{linkedin}}</a></h3>
-
-
-
-<div  *ngIf="!editarDatos">
-    <form [formGroup]="formDatosPer" (ngSubmit)="onEnviarDatos($event)">
-    <br>
-    
-    <h3>Nombre: </h3><input type="text" formControlName="nombre">
-    <h3>Apellido: </h3><input type="text" formControlName="apellido">
-    <h3>Dni: </h3><input type="text" formControlName="dni">
-    <h3>Fecha de nacimiento: </h3><input type="text" formControlName="fechaNacimiento">
-    <h3>Correo electrónico: </h3><input type="text" formControlName="mail">
-    <h3>Telefono: </h3><input type="text" formControlName="telefono">
-    <h3>Nacionalidad: </h3><input type="text" formControlName="nacionalidad">
-    <h3>Perfil de Linkedin:</h3><input type="text" formControlName="linkedin">
-    <br>
-    <button type="submit" mat-flat-button color="primary">Modificar</button>
-  </form>
-</div>
-</div> -->
-
-
-
-
 <div id="parallax">
   <div class="row text-center">
     <div class="col-sm-12 col-md-12 col-md-12">
-        <h2 style="font-size: 60px;line-height: 60px;margin-bottom: 20px;font-weight: 900;">Mis datos personales</h2>
-        <p>Puedes contactarme por mis redes sociales, correo electronico o por telefono.</p>
+      <h2
+        style="
+          font-size: 60px;
+          line-height: 60px;
+          margin-bottom: 20px;
+          font-weight: 900;
+        "
+      >
+        Mis datos personales
+      </h2>
+      <p>
+        Puedes contactarme por mis redes sociales, correo electrónico o por
+        teléfono.
+      </p>
     </div>
   </div>
 </div>
 
-<div class="container">
-<div class="icons"><mat-icon *ngIf="isEditable" (click)="eliminar($event)">{{'delete_outline'}}</mat-icon><mat-icon *ngIf="isEditable" (click)="modificarDatos()">{{'create'}}</mat-icon></div>
-    <h3 *ngIf="editarDatos">Nombre: {{nombre}}</h3>
-    <h3 *ngIf="editarDatos">Apellido: {{apellido}}</h3>
-    <h3 *ngIf="editarDatos">Dni: {{dni}}</h3>
-    <h3 *ngIf="editarDatos">Fecha de nacimiento: {{fechaNacimiento}}</h3>
-    <h3 *ngIf="editarDatos">Correo electrónico: {{mail}}</h3>
-    <h3 *ngIf="editarDatos">Telefono: {{telefono}}</h3>
-    <h3 *ngIf="editarDatos">Nacionalidad: {{nacionalidad}}</h3>
-    <h3 *ngIf="editarDatos">Perfil de Linkedin: <a href="https://www.linkedin.com/in/jesica-hoffman-334bb9208/" target="_blank" *ngIf="editarDatos">{{linkedin}}</a></h3>
 
+ <div class="container">
+  <div class="row">
+  <div class="col-lg-12">
+      <div class="card">
+          <div class="card-body">
+              <div class="row justify-content-center">
+                  <div class="col-lg-10">
+                      <ul class="verti-timeline list-unstyled" dir="ltr">
+                          <li class="event-list">
+                              <div class="timeline-icon">
+                                  <i class="mdi mdi-adjust bg-success"></i>
+                              </div>
+                              <div class="event-content p-4">
+                                  <div class="text-muted">
+                                    <h3 *ngIf="editarDatos">Nombre: {{ nombre }}</h3>
+                                    <h3 *ngIf="editarDatos">Apellido: {{ apellido }}</h3>
+                                    <h3 *ngIf="editarDatos">Dni: {{ dni }}</h3>
+                                    <h3 *ngIf="editarDatos">Fecha de nacimiento: {{ fechaNacimiento }}</h3>
+                                    <h3 *ngIf="editarDatos">Correo electrónico: {{ mail }}</h3>
+                                    <h3 *ngIf="editarDatos">Teléfono: {{ telefono }}</h3>
+                                    <h3 *ngIf="editarDatos">Nacionalidad: {{ nacionalidad }}</h3>
+                                    <h3 *ngIf="editarDatos">
+                                      Perfil de Linkedin:
+                                      <a
+                                        href="https://www.linkedin.com/in/jesica-hoffman-334bb9208/"
+                                        target="_blank"
+                                        *ngIf="editarDatos"
+                                        >{{ linkedin }}</a
+                                      >
+                                    </h3>
+                                  </div>
+                                  <div *ngIf="!editarDatos">
+                                    <form [formGroup]="formDatosPer" (ngSubmit)="onEnviarDatos($event)">
+                                      <br />
 
+                                      <h3>Nombre:</h3>
+                                      <input type="text" formControlName="nombre" />
+                                      <h3>Apellido:</h3>
+                                      <input type="text" formControlName="apellido" />
+                                      <h3>Dni:</h3>
+                                      <input type="text" formControlName="dni" />
+                                      <h3>Fecha de nacimiento:</h3>
+                                      <input type="text" formControlName="fechaNacimiento" />
+                                      <h3>Correo electrónico:</h3>
+                                      <input type="text" formControlName="mail" />
+                                      <h3>Teléfono:</h3>
+                                      <input type="text" formControlName="telefono" />
+                                      <h3>Nacionalidad:</h3>
+                                      <input type="text" formControlName="nacionalidad" />
+                                      <h3>Perfil de Linkedin:</h3>
+                                      <input type="text" formControlName="linkedin" />
+                                      <br />
+                                      <br />
+                                      <button type="submit" mat-flat-button color="primary">Modificar</button>
+                                    </form>
+                                  </div>
 
-<div  *ngIf="!editarDatos">
-    <form [formGroup]="formDatosPer" (ngSubmit)="onEnviarDatos($event)">
-    <br>
-    
-    <h3>Nombre: </h3><input type="text" formControlName="nombre">
-    <h3>Apellido: </h3><input type="text" formControlName="apellido">
-    <h3>Dni: </h3><input type="text" formControlName="dni">
-    <h3>Fecha de nacimiento: </h3><input type="text" formControlName="fechaNacimiento">
-    <h3>Correo electrónico: </h3><input type="text" formControlName="mail">
-    <h3>Telefono: </h3><input type="text" formControlName="telefono">
-    <h3>Nacionalidad: </h3><input type="text" formControlName="nacionalidad">
-    <h3>Perfil de Linkedin:</h3><input type="text" formControlName="linkedin">
-    <br>
-    <button type="submit" mat-flat-button color="primary">Modificar</button>
-  </form>
-</div>
-
-</div>
-
-
-                
+                                  <div class="icons">
+                                    <button
+                                      *ngIf="isEditable && editarDatos"
+                                      mat-flat-button
+                                      color="primary"
+                                      (click)="eliminar($event)"
+                                    >
+                                      Eliminar</button
+                                    ><br />
+                                    <br />
+                                    <button
+                                      *ngIf="isEditable && editarDatos"
+                                      mat-flat-button
+                                      color="primary"
+                                      (click)="modificarDatos()"
+                                    >
+                                      Modificar
+                                    </button>
+                                  </div>
+                                  <br />
+                              </div>
+                              <div class="event-date">
+                                  <h5 class="mt-0"></h5>
+                                  <p class="mb-0 text-white-50"></p>
+                              </div>
+                          </li></ul></div></div></div></div></div></div></div>
