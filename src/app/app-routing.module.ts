@@ -8,13 +8,13 @@ import { LoginComponent } from './login/login.component';
 import { SkillsComponent } from './skills/skills.component';
 
 const routes: Routes = [
-  { path: '', component: InicioComponent },
+  { path: '', component: InicioComponent},
   { path: 'about', component: AboutComponent },
   { path: 'skills', component: SkillsComponent },
   { path: 'experiencia', component: ExperienceComponent },
   { path: 'login', component: LoginComponent }
-    
-  
+
+
 ];
 
 

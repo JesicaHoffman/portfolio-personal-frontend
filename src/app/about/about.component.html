@@ -1,7 +1,124 @@
-<div id="background">
-    
-    <div class="text">
-        <h1>Sobre mi</h1>
-        <h3>"On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."</h3>
+<div *ngIf="!loading" class="container">
+  <div *ngIf="!loading" class="text-center mb-2-8 mb-lg-6">
+    <h1 class="display-18 display-md-16 display-lg-14">Sobre mi</h1>
+    <span>Full Stack Developer Hoffman Jesica</span>
+  </div>
+  <div *ngIf="!loading" class="row align-items-center">
+    <div class="col-sm-6 col-lg-4 mb-2-9 mb-sm-0">
+      <div class="pr-md-3">
+        <div class="text-center text-sm-right mb-2-9">
+          <div class="mb-4">
+            <img
+              src="https://images.pexels.com/photos/2265488/pexels-photo-2265488.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              alt="..."
+              class="rounded-circle"
+              height="80"
+              width="87"
+            />
+          </div>
+          <h4 class="sub-info">Un poco sobre mi...</h4>
+          <div class="icons">
+            <mat-icon *ngIf="isEditable" (click)="eliminar($event)">{{
+              "delete_outline"
+            }}</mat-icon
+            ><mat-icon *ngIf="isEditable" (click)="modificar()">{{
+              "create"
+            }}</mat-icon>
+          </div>
+          <p *ngIf="editar" class="display-30 mb-0">{{ aboutMe }}</p>
+          <div *ngIf="!editar">
+            <form [formGroup]="formAbout" (ngSubmit)="onEnviar($event)">
+              <br />
+              <input class="aboutMeInput" formControlName="texto" />
+              <br />
+              <br />
+              <button type="submit" mat-flat-button color="primary">
+                Modificar
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="text-center text-sm-right">
+          <div class="mb-4">
+            <img
+              src="assets/img/estudio.jfif"
+              alt="..."
+              class="rounded-circle"
+              height="80"
+              width="80"
+            />
+          </div>
+          <h4 class="sub-info">Capacitación constante</h4>
+          <p class="display-30 mb-0">
+            "Desde que comencé en este apasionante mundo del software realicé
+            muchas capacitaciones, tanto de Frontend y Backend como Diseño
+            UX/UI. Soy una persona naturalmente curiosa y trabajo constantemente
+            para mejorar mis habilidades. Me gusta mucho el trabajo en equipo ya
+            que gran parte de nuestra capacitación la recibimos de nuestros
+            pares."
+          </p>
+        </div>
+      </div>
     </div>
+    <div class="col-lg-4 d-none d-lg-block">
+      <div class="why-choose-center-image">
+        <img src="assets/img/perfil.jfif" alt="..." class="rounded-circle" />
+      </div>
+    </div>
+    <div class="col-sm-6 col-lg-4">
+      <div class="pl-md-3">
+        <div class="text-center text-sm-left mb-2-9">
+          <div class="mb-4">
+            <img
+              src="assets/img/develop.jfif"
+              alt="..."
+              class="rounded-circle"
+              height="80"
+              width="85"
+            />
+          </div>
+          <h4 class="sub-info">Siempre en los detalles</h4>
+          <p class="display-30 mb-0">
+            "Me considero una persona muy detallista y resolutiva. En mi
+            experiencia como desarrolladora siempre me sentí mas cómoda en el
+            desarrollo Frontend. Valoro la estructura de contenido simple, los
+            patrones de diseño limpios y las interacciones bien pensadas."
+          </p>
+        </div>
+        <br />
+        <div class="text-center text-sm-left">
+          <div class="mb-4">
+            <img
+              src="assets/img/bandera.png"
+              alt=""
+              class="rounded-circle"
+              height="80"
+              width="80"
+            />
+          </div>
+          <h4 class="sub-info">Inglés</h4>
+          <p class="display-30 mb-0">
+            "Poseo nivel educativo B1 egresada de la institución Cultural
+            Inglesa de la ciudad de Rosario."
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-datos-personales *ngIf="!loading"></app-datos-personales>
+
+<div *ngIf="loading" class="preloader">
+  <div class="loader">
+    <div class="loader-outter"></div>
+    <div class="loader-inner"></div>
+
+    <div class="indicator">
+      <svg width="16px" height="12px">
+        <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+        <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+      </svg>
+    </div>
+  </div>
 </div>
