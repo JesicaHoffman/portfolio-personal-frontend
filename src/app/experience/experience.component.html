@@ -1,1 +1,267 @@
-<p>experience works!</p>
+<div *ngIf="loading" class="preloader">
+  <div class="loader">
+    <div class="loader-outter"></div>
+    <div class="loader-inner"></div>
+
+    <div class="indicator">
+      <svg width="16px" height="12px">
+        <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+        <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div class="cont">
+  <div *ngIf="!loading" class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-12">
+        <h1 class="font-300">Mis proyectos</h1>
+        <mat-icon *ngIf="isEditable" (click)="open(content)">{{
+          "add_circle_outline"
+        }}</mat-icon>
+        <p class="text-muted mt-4 title-subtitle mx-auto">
+          Podrás contactarme para mas información sobre los proyectos en los que
+          he trabajado.
+        </p>
+      </div>
+
+      <!--  Modal -->
+
+      <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">
+            Ingresá tu nueva experiencia
+          </h4>
+          <button
+            type="button"
+            class="btn-close"
+            aria-label="Close"
+            (click)="modal.dismiss('Cross click')"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form
+            [formGroup]="addExperiencia"
+            (ngSubmit)="agregarExperiencia($event)"
+          >
+            <div class="mb-3">
+              <label for="dateOfBirth">Empresa:</label>
+              <div class="input-group">
+                <input
+                  id="dateOfBirth"
+                  class="form-control"
+                  name="dp"
+                  ngbDatepicker
+                  #dp="ngbDatepicker"
+                  formControlName="addEmpresa"
+                />
+              </div>
+              <label for="dateOfBirth">Cargo:</label>
+              <div class="input-group">
+                <input
+                  id="dateOfBirth"
+                  class="form-control"
+                  name="dp"
+                  ngbDatepicker
+                  #dp="ngbDatepicker"
+                  formControlName="addCargo"
+                />
+              </div>
+              <label for="dateOfBirth">Fecha de inicio:</label>
+              <div class="input-group">
+                <input
+                  id="dateOfBirth"
+                  class="form-control"
+                  name="dp"
+                  ngbDatepicker
+                  #dp="ngbDatepicker"
+                  formControlName="addFechaInicio"
+                />
+              </div>
+              <label for="dateOfBirth">Fecha fin:</label>
+              <div class="input-group">
+                <input
+                  id="dateOfBirth"
+                  class="form-control"
+                  name="dp"
+                  ngbDatepicker
+                  #dp="ngbDatepicker"
+                  formControlName="addFechaFin"
+                />
+              </div>
+              <label for="dateOfBirth">Proyecto:</label>
+              <div class="input-group">
+                <input
+                  id="dateOfBirth"
+                  class="form-control"
+                  name="dp"
+                  ngbDatepicker
+                  #dp="ngbDatepicker"
+                  formControlName="addProyecto"
+                />
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="submit"
+                class="btn btn-outline-dark"
+                (click)="modal.close('Save click')"
+              >
+                Agregar
+              </button>
+            </div>
+          </form>
+        </div>
+      </ng-template>
+    </div>
+    <div
+      *ngFor="let experiencia of experiencias; let i = index"
+      class="timeline-page mt-5"
+    >
+      <div class="timeline-item">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="duration date-label-left">
+              <!-- <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="img-fluid rounded-circle"> -->
+              <img
+                *ngIf="experiencia.empresa == 'ICBC Argentina'"
+                src="assets/img/icbcMobile.jpg"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                *ngIf="experiencia.empresa == 'TAB-SI'"
+                src="assets/img/tabsi.png"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                *ngIf="experiencia.empresa == 'Moby Digital'"
+                src="assets/img/tablero.png"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                *ngIf="experiencia.empresa == 'Freelance'"
+                src="assets/img/portfolio.png"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                *ngIf="experiencia.empresa == 'Freelance-UX'"
+                src="assets/img/diseñoux.png"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="works works-description-right">
+              <h4>{{ experiencia.empresa }}</h4>
+              <p class="timeline-subtitle">{{ experiencia.cargo }}</p>
+              <p class="timeline-subtitle">
+                {{ experiencia.fechaInicio }} - {{ experiencia.fechaFin }}
+              </p>
+              <p class="timeline-subtitle">{{ experiencia.proyecto }}</p>
+              <mat-icon *ngIf="isEditable" (click)="eliminar($event, i)">{{
+                "delete_outline"
+              }}</mat-icon
+              ><mat-icon *ngIf="isEditable" (click)="openModal(modificar)">{{
+                "create"
+              }}</mat-icon>
+            </div>
+          </div>
+        </div>
+        <ng-template #modificar let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">
+              Modificá tu experiencia
+            </h4>
+            <button
+              type="button"
+              class="btn-close"
+              aria-label="Close"
+              (click)="modal.dismiss('Cross click')"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form
+              [formGroup]="formExperiencia"
+              (ngSubmit)="onEnviar($event, i)"
+            >
+              <div class="mb-3">
+                <label for="dateOfBirth">Empresa:</label>
+                <div class="input-group">
+                  <input
+                    id="dateOfBirth"
+                    class="form-control"
+                    name="dp"
+                    ngbDatepicker
+                    #dp="ngbDatepicker"
+                    formControlName="empresa"
+                  />
+                </div>
+                <label for="dateOfBirth">Cargo:</label>
+                <div class="input-group">
+                  <input
+                    id="dateOfBirth"
+                    class="form-control"
+                    name="dp"
+                    ngbDatepicker
+                    #dp="ngbDatepicker"
+                    formControlName="cargo"
+                  />
+                </div>
+                <label for="dateOfBirth">Fecha Inicio:</label>
+                <div class="input-group">
+                  <input
+                    id="dateOfBirth"
+                    class="form-control"
+                    name="dp"
+                    ngbDatepicker
+                    #dp="ngbDatepicker"
+                    formControlName="fechaInicio"
+                  />
+                </div>
+                <label for="dateOfBirth">Fecha fin:</label>
+                <div class="input-group">
+                  <input
+                    id="dateOfBirth"
+                    class="form-control"
+                    name="dp"
+                    ngbDatepicker
+                    #dp="ngbDatepicker"
+                    formControlName="fechaFin"
+                  />
+                </div>
+                <label for="dateOfBirth">Proyecto:</label>
+                <div class="input-group">
+                  <input
+                    id="dateOfBirth"
+                    class="form-control"
+                    name="dp"
+                    ngbDatepicker
+                    #dp="ngbDatepicker"
+                    formControlName="proyecto"
+                  />
+                </div>
+              </div>
+
+              <div class="modal-footer">
+                <button
+                  type="submit"
+                  class="btn btn-outline-dark"
+                  (click)="modal.close('Save click')"
+                >
+                  Modificar
+                </button>
+              </div>
+            </form>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

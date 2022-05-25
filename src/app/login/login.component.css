@@ -1,0 +1,52 @@
+.container{
+    padding-top: 25vh;
+    text-align: center;
+    height: 100vh;
+
+}
+
+.cont{
+  background-image: url('https://images.pexels.com/photos/459653/pexels-photo-459653.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+}
+
+mat-form-field{
+    width: 50%;
+    margin-bottom: 7vh;
+}
+
+form{
+  background-color: rgba(240, 248, 255, 0.642);
+  padding: 5vh;
+  margin-left: 18vw;
+  width: 50%;
+  box-shadow: 5cm, black;
+}
+
+h1{
+    margin-bottom: 7vh;
+    color: rgba(240, 248, 255, 0.642);
+
+}
+
+
+.mat-h1, .mat-headline, .mat-typography h1{
+  font-size: 400;
+}
+
+button{
+  color: rgba(61, 64, 67, 0.841);
+  background-color: rgba(29, 30, 30, 0.042);
+  border-color: rgba(240, 248, 255, 0.752);
+  border-radius: 5px;
+  height: 40px;
+  width: 200px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+#salir{
+  background-color: rgba(211, 217, 217, 0.804);
+}
+button:hover{
+  background-color: rgba(57, 55, 55, 0.533);
+}
