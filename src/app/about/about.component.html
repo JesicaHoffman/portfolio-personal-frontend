@@ -1,21 +1,19 @@
-<div *ngIf="!loading"  class="container">
+<div *ngIf="!loading" class="container">
   <div *ngIf="!loading" class="text-center mb-2-8 mb-lg-6">
-    <h1 class="display-18 display-md-16 display-lg-14 ">
-      Sobre mi
-    </h1>
+    <h1 class="display-18 display-md-16 display-lg-14">Sobre mi</h1>
     <span>Full Stack Developer Hoffman Jesica</span>
   </div>
-  <div *ngIf="!loading"class="row align-items-center">
+  <div *ngIf="!loading" class="row align-items-center">
     <div class="col-sm-6 col-lg-4 mb-2-9 mb-sm-0">
       <div class="pr-md-3">
         <div class="text-center text-sm-right mb-2-9">
           <div class="mb-4">
             <img
-              src="assets/img/profile.png"
+              src="https://images.pexels.com/photos/2265488/pexels-photo-2265488.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
               alt="..."
               class="rounded-circle"
               height="80"
-              width="80"
+              width="87"
             />
           </div>
           <h4 class="sub-info">Un poco sobre mi...</h4>
@@ -52,7 +50,7 @@
           </div>
           <h4 class="sub-info">Capacitación constante</h4>
           <p class="display-30 mb-0">
-            "Desde que comencé en este apasionante mundo del software relicé
+            "Desde que comencé en este apasionante mundo del software realicé
             muchas capacitaciones, tanto de Frontend y Backend como Diseño
             UX/UI. Soy una persona naturalmente curiosa y trabajo constantemente
             para mejorar mis habilidades. Me gusta mucho el trabajo en equipo ya
@@ -64,7 +62,7 @@
     </div>
     <div class="col-lg-4 d-none d-lg-block">
       <div class="why-choose-center-image">
-        <img src="assets/img/imagencv.jpg" alt="..." class="rounded-circle" />
+        <img src="assets/img/perfil.jfif" alt="..." class="rounded-circle" />
       </div>
     </div>
     <div class="col-sm-6 col-lg-4">
@@ -76,7 +74,7 @@
               alt="..."
               class="rounded-circle"
               height="80"
-              width="80"
+              width="85"
             />
           </div>
           <h4 class="sub-info">Siempre en los detalles</h4>
@@ -111,16 +109,16 @@
 
 <app-datos-personales *ngIf="!loading"></app-datos-personales>
 
-<div  *ngIf="loading" class="preloader">
+<div *ngIf="loading" class="preloader">
   <div class="loader">
-      <div class="loader-outter"></div>
-      <div class="loader-inner"></div>
+    <div class="loader-outter"></div>
+    <div class="loader-inner"></div>
 
-      <div class="indicator">
-          <svg width="16px" height="12px">
-              <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
-              <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
-          </svg>
-      </div>
+    <div class="indicator">
+      <svg width="16px" height="12px">
+        <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+        <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+      </svg>
+    </div>
   </div>
 </div>

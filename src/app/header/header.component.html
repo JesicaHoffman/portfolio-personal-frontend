@@ -14,9 +14,6 @@
       <span class="login" routerLink="/skills">Skills</span>
       <span class="login" routerLink="/experiencia">Experiencia</span>
       <span *ngIf="!isEditable" class="login" routerLink="/login">Login</span>
-      <span *ngIf="isEditable" class="login" routerLink="/" (click)="logOut()"
-        >Logout</span
-      >
       <span class="login" routerLink="/">Inicio</span>
       <a
         href="https://api.whatsapp.com/send?phone=5493415142082&text=Escribe%20aquí%20tu%20consulta!"

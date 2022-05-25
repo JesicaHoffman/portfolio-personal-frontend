@@ -41,7 +41,6 @@ export class DatosPersonalesComponent implements OnInit {
   ngOnInit(): void {
     this.generalService.getPersona().subscribe((datos) => {
       if (datos[0]) {
-        console.log('asdf');
         this.datosPersonales = datos;
         this.nombre = datos[0].nombre;
         this.apellido = datos[0].apellido;
@@ -58,7 +57,6 @@ export class DatosPersonalesComponent implements OnInit {
 
     if (localStorage.getItem('isEditable') === 'true') {
       this.isEditable = true;
-      console.log('isEditable true');
     }
   }
 

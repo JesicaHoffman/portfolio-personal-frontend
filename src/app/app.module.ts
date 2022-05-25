@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AppRoutingModule } from './app-routing.module';
@@ -13,10 +13,10 @@ import { SkillsComponent } from './skills/skills.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { InicioComponent } from './inicio/inicio.component';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GeneralService } from './servicios/general.service';
 import { DatosPersonalesComponent } from './datos-personales/datos-personales.component';
@@ -33,7 +33,7 @@ import { FooterComponent } from './footer/footer.component';
     SkillsComponent,
     InicioComponent,
     DatosPersonalesComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,10 +46,9 @@ import { FooterComponent } from './footer/footer.component';
     MatIconModule,
     MatSnackBarModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [GeneralService
-  ],
-  bootstrap: [AppComponent]
+  providers: [GeneralService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

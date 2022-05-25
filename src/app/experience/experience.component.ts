@@ -16,7 +16,7 @@ export class ExperienceComponent implements OnInit {
   editar: boolean = true;
   add: boolean = false;
   closeResult = '';
-  loading:boolean = true;
+  loading: boolean = true;
   constructor(
     private generalService: GeneralService,
     private formBuilder: FormBuilder,

@@ -16,7 +16,7 @@ export class EducationComponent implements OnInit {
   editar: boolean = true;
   add: boolean = false;
   closeResult = '';
-  loading:boolean = true;
+  loading: boolean = true;
   constructor(
     private generalService: GeneralService,
     private formBuilder: FormBuilder,
@@ -38,7 +38,6 @@ export class EducationComponent implements OnInit {
 
   ngOnInit(): void {
     this.generalService.getEducacion().subscribe((data) => {
-      console.log(data);
       this.educaciones = data;
       this.loading = false;
     });
@@ -127,7 +126,6 @@ export class EducationComponent implements OnInit {
       fechaInicio: this.formEducacion.get('fechaInicio')?.value,
       fechaFin: this.formEducacion.get('fechaFin')?.value,
     };
-    console.log(this.educaciones[index]);
     this.generalService
       .modifyEducacion(this.educaciones[index])
       .subscribe((data) => {

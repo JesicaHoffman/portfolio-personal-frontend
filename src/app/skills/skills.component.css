@@ -1,4 +1,14 @@
 body{margin-top:20px;}
+
+.cont{
+  background-image: url('https://images.pexels.com/photos/1772123/pexels-photo-1772123.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1000');
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-sizing: border-box;
+  padding-top: 100px;
+
+}
+
 .bg-light-primary {
     background-color: #f9fbff!important;
 }
@@ -11,6 +21,8 @@ body{margin-top:20px;}
 .hover-scale, .hover-scale:hover {
     transition: transform .2s ease-in;
 }
+
+
 .card {
     position: relative;
     display: flex;
@@ -52,9 +64,10 @@ body{margin-top:20px;}
 .gray-bg {
   background-color: #f5f5f5;
 }
+
 .section-title h2 {
   font-weight: 700;
-  color: #20247b;
+  color: #3b3c54;
   font-size: 45px;
   margin: 0 0 15px;
   border-left: 5px solid #635757;

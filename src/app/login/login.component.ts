@@ -32,7 +32,11 @@ export class LoginComponent implements OnInit {
     this._snackBar.open(message, action);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (localStorage.getItem('isEditable') === 'true') {
+      this.content = false;
+    }
+  }
 
   get Email() {
     return this.form.get('email');
@@ -42,7 +46,7 @@ export class LoginComponent implements OnInit {
     return this.form.get('password');
   }
 
-  onEnviar(event: Event) {
+  onEnviar() {
     if (
       this.Email?.value === 'jesica_889@hotmail.com' &&
       this.Password?.value === 'Jesica156'
@@ -50,9 +54,14 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('isEditable', 'true');
       this.openSnackBar('Ingresaste a modo edición', 'Cerrar');
       this.content = false;
-      this.router.navigateByUrl('/');
     } else {
       this.openSnackBar('Usuario no registrado', 'Cerrar');
     }
+  }
+
+  salirModoEdicion() {
+    this.content = true;
+    localStorage.setItem('isEditable', 'false');
+    this.openSnackBar('Saliste del modo edición', 'Cerrar');
   }
 }
